@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchManufacturers } from '../actions/actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class Manufacturers extends Component {
@@ -13,7 +14,7 @@ class Manufacturers extends Component {
       <ul className="manufacturers-catalog">>
         {this.props.manufacturers.map(manufacturer => (
         <li key={manufacturer._id}>
-          <img src={manufacturer.icon} alt={manufacturer.title} />
+          <Link to={`/manufacturer=${manufacturer._id}`}><img src={manufacturer.icon} alt={manufacturer.title} /></Link>
         </li>
       ))}
       </ul>
