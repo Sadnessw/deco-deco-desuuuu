@@ -1,4 +1,4 @@
-import { FETCH_MANUFACTURERS } from './types';
+import { FETCH_MANUFACTURERS, FETCH_PRODUCTS } from './types';
 import ApiService from '../API/ApiService';
 
 export const fetchManufacturers = (sort = '?sort=1') => async dispatch => {
@@ -8,3 +8,11 @@ export const fetchManufacturers = (sort = '?sort=1') => async dispatch => {
     payload: resolve
   });
 }
+
+export const fetchProducts = (manufacturerId) => async dispatch => {
+  const resolve = (await ApiService.productsAPI(manufacturerId)).data;
+  dispatch({
+    type: FETCH_PRODUCTS,
+    payload: resolve
+  });
+}; 
