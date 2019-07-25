@@ -4,7 +4,7 @@ import ApiService from './components/API/ApiService';
 import Manufacturers from './components/Catalog/Manufacturers';
 import BtnStyle from './components/Styles/BtnStyle';
 import Products from './components/ProductsCatalog/Products';
-// import ProductInfo from './components/ProductsCatalog/ProductInfo';
+import ProductInfo from './components/ProductsCatalog/ProductInfo';
 
 import './App.css';
 
@@ -40,9 +40,10 @@ class App extends Component {
             </React.Fragment>
           )} />
 
-          <Route exact path={`/product/:id`} render={() => (
+          <Route exact path={`/product/:id`} render={(props) => (
             <React.Fragment>
               <Link to="/" style={BtnStyle.get}>Back to manufacturers</Link>
+              <ProductInfo {...props} />
             </React.Fragment>
           )} />
 
