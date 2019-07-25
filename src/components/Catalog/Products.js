@@ -13,8 +13,8 @@ class Products extends Component {
     return (
       <ul className="products-catalog">
         {this.props.products.result.map(product => (
-          <li key={product._id}>
-            <Link to={`/product/${product._id}`}><img src={product.imageLink} alt={product.name}/></Link>
+          <li key={product._id} className="product-item">
+            <Link to={`/product/${product._id}`}><img src={product.imageLink} alt={product.name} width="215" height="215"/></Link>
           </li>
         ))}
       </ul> 

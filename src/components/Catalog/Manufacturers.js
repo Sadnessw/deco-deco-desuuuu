@@ -16,14 +16,16 @@ class Manufacturers extends Component {
 
   render() {
     return (
-      <ul className="manufacturers-catalog">
+      <React.Fragment>
         <SortingForm handleSubmit={this.submit} />
-        {this.props.manufacturers.map(manufacturer => (
-          <li key={manufacturer._id}>
-            <Link to={`/manufacturer=${manufacturer._id}`}><img src={manufacturer.icon} alt={manufacturer.title} /></Link>
-          </li>
-        ))}
-      </ul>
+        <ul className="manufacturers-catalog">
+          {this.props.manufacturers.map(manufacturer => (
+            <li key={manufacturer._id} className="manufacturer-item">
+              <Link to={`/manufacturer=${manufacturer._id}`}><img src={manufacturer.icon} alt={manufacturer.title} width="215" height="215" /></Link>
+            </li>
+          ))}
+        </ul>
+      </React.Fragment>
     )
   }
 }
