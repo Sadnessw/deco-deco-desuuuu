@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 
 class Products extends Component {
   componentDidMount() {
-    this.props.fetchProducts(this.props.match.params.id);
+    const params = {manufacturer: this.props.match.params.id}
+    this.props.fetchProducts(params);
   }
 
   render() {
@@ -14,10 +15,10 @@ class Products extends Component {
       <ul className="products-catalog">
         {this.props.products.result.map(product => (
           <li key={product._id} className="product-item">
-            <Link to={`/product/${product._id}`}><img src={product.imageLink} alt={product.name} width="215" height="215"/></Link>
+            <Link to={`/product/${product._id}`}><img src={product.imageLink} alt={product.name} width="215" height="215" /></Link>
           </li>
         ))}
-      </ul> 
+      </ul>
     )
   }
 }

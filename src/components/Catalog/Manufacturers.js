@@ -7,7 +7,10 @@ import PropTypes from 'prop-types';
 
 class Manufacturers extends Component {
   componentDidMount() {
-    this.props.fetchManufacturers();
+    const params = {
+      sort: 1
+    }
+    this.props.fetchManufacturers(params);
   }
 
   submit = (e) => {
